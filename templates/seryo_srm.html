@@ -1,0 +1,38 @@
+{% extends 'home2.html' %}
+
+{% block title %} Plus {% endblock title %}
+
+{% block content %}
+
+
+<main>
+    <div class="container">
+        <div class="main-container">
+            <div class="main-div-box">
+              {% for seryo in malumotes %}
+                <div class="main-div">
+                  {% if seryo.photo.url != null %}
+                  <div>
+                      <a href="" style="color: black; text-decoration: none;"><img style="width: 100%; height: 100%; border-radius: 10px;" src="{{seryo.photo.url}}" alt=""></a>
+                  </div>
+                 {% endif %}
+                    <!-- <img src="https://www.prom.uz/_ipx/f_webp/https://devel.prom.uz/upload/reduced/products/79/a8/79a89bd5f950d8a15047f5f1eb3f9ff6.jpg" alt="img"> -->
+                    <h4>Nomi: {{seryo.title}}</h4>
+                    <!-- <p>Davlati: {{market.country}}</p> -->
+                    <p>Markasi: {{seryo.markasi}}</p>
+                    <!-- <p>Sastayanasi: {{market.holati}}</p> -->
+                    <span>Narxi: {{seryo.body}}</span>
+                   
+                </div>
+               
+             {% endfor %}
+
+              
+            </div>
+        </div>
+    </div>
+</main>
+<!-- <hr style="width: 95%; margin-left: 30px;"> -->
+<br><br>
+
+{% endblock content %}

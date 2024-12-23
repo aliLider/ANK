@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+
+{% block title %} sklad {% endblock title %} 
+
+
+{% block content %}
+
+<style>
+    .sklad{
+        width: 80%;
+        text-align: center;
+        padding: 7px;
+        height: 35px;
+        margin-top: 40px;
+        color: white;
+        border: 0;
+        border-radius: 10px;
+        background-color: #2a8401;
+        font-size: 16px;
+        margin-bottom: 50px;
+        margin-left: 10%;
+    }
+    .sklad:hover{
+        background-color: #004b23;
+    }
+    .item{
+        position: relative;
+        display: flex;
+        margin-top: 20px; 
+        border-radius: 20px; 
+        margin-left: 10%; 
+        width: 80%; 
+        height: 310px; 
+        border: 2px solid #000000;
+    }
+    .h3cha{
+        color: #004b23;
+        text-align: center;
+    }
+    .img_minus{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+    .item01 input{
+        margin-left: 0px; 
+        margin-top: 30px; 
+        height: 40px; 
+        width: 300px; 
+        border-radius: 10px; 
+        border: 2px solid  black; font-size: 20px;
+    }
+    .item01 label{
+        font-size: 27px; 
+        font-weight: bold; 
+        margin-left: 30px;
+    }
+    .item01 .h102{
+        margin-top: 35px;
+        margin-left: 30px;
+    }
+    .h101{
+        margin-top: 55px; 
+        margin-left: 30px;
+    }
+    .imgcha{
+        width: 250px; 
+        height: 250px;
+        border-radius: 10px; 
+        margin-left: 30px; 
+        margin-top: 30px;
+    }
+@media screen and (max-width: 1024px) and (min-width:769px){
+    .item01 input{
+        margin-top: 30px; 
+        height: 35px; 
+        width: 280px; 
+        font-size: 18px;
+    }
+    .item{
+        margin-top: 20px; 
+        border-radius: 20px; 
+        margin-left: 5%; 
+        width: 90%; height: 290px; 
+        border: 2px solid black;
+    }
+    .item01 label{
+        font-size: 24px; 
+        font-weight: bold; 
+        margin-left: 30px;
+       
+    }
+    .item01 .h102{
+        margin-top: 30px;
+        margin-left: 30px;
+        font-size: 24px;
+    }
+    .h101{
+        margin-top: 55px; 
+        margin-left: 30px;
+        font-size: 27px;
+    }
+    .imgcha{
+        width: 230px; 
+        height: 230px;
+    }
+}
+@media screen and (max-width: 768px) and (min-width:420px){
+    .item{
+        display: flex;
+        flex-wrap: wrap;
+        height: auto; 
+        padding-bottom:50px ;
+        width: 90%;
+        margin-left: 5%; 
+    }
+    .img_minus{
+        bottom: 5px;
+        right: 5px;
+    }
+    .item01 input{
+        margin-left: 0px; 
+        margin-top: 20px; 
+        height: 35px; 
+        width: 280px; 
+        border-radius: 10px; 
+        border: 2px solid  black; 
+        font-size: 20px;
+    }
+    .item01 label{
+        font-size: 25px; 
+        font-weight: bold; 
+        margin-left: 30px;
+    }
+    .item01 .h102{
+        margin-top: 18px;
+        margin-left: 30px;
+        font-size: 25px;
+    }
+    .h101{
+        margin-top: 25px; 
+        margin-left: 30px;
+        font-size: 25px;
+    }
+    .blog_teg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .imgcha{
+        margin: 0;
+        padding: 0;
+        margin-top: 10px;
+        width: 300px;
+    }
+
+}
+@media screen and (max-width: 420px) and (min-width:100px){
+    .item{
+        display: flex;
+        flex-wrap: wrap;
+        height: auto; 
+        padding-bottom:50px ;
+        width: 92%;
+        margin-left: 3%; 
+    }
+    .img_minus{
+        bottom: 5px;
+        right: 5px;
+    }
+    .item01 input{
+        margin-left: 0px; 
+        margin-top: 20px; 
+        height: 35px; 
+        width: 200px; 
+        border-radius: 10px; 
+        border: 2px solid  black; 
+        font-size: 18px;
+    }
+    .item01 label{
+        font-size: 25px; 
+        font-weight: bold; 
+        margin-left: 10px;
+    }
+    .item01 .h102{
+        margin-top: 16px;
+        margin-left: 10px;
+        font-size: 22px;
+    }
+    .h101{
+        margin-top: 20px; 
+        margin-left: 10px;
+        font-size: 22px;
+    }
+    .blog_teg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .imgcha{ 
+        margin: 0;
+        margin-top: 10px;
+    }
+    .h3cha{
+        font-size: 17px;
+    }
+}
+
+</style>
+
+<h1 style="text-align: center; padding-top: 80px;">Savat</h1>
+
+{% for market in sklad %}
+<div class="item">
+    <div class="blog_teg">
+
+    {% if market.photo.url != null %}
+        <div>
+            <a href="" style="color: black; text-decoration: none;"><img class="imgcha" src="{{market.photo.url}}" alt="img"></a>
+        </div>
+    {% endif %}
+
+    </div>
+    <div class="item01"> 
+        <h1 class="h101">{{market.title}}</h1>
+    <h1 class="h102">Narxi : <span style="color: #004b23;" class="price">{{market.body}}</span> so'm</h1>
+        <label for="quantity">Kg -</label>
+        <input type="number" class="quantity" value="10" min="10" placeholder="KG">
+    </div>
+    <a href="{% url 'minus' market.id %}">
+        <img class="img_minus" src="../media/images/minus-sign-icon-free-png.webp" alt="minus" style="width: 35px ; height: 35px;">
+    </a>
+</div>
+{% endfor %}
+<br><br>
+
+<h3 class="h3cha">Umumiy narx: <span id="total">0</span>0  so'm</h3>
+<button  class="sklad">Buyurtma berish</button>
+
+<script>
+    // Обработчик изменения количества товаров
+    function updateTotal() {
+        var items = document.querySelectorAll('.item');
+        var total = 0;
+
+        items.forEach(function(item) {
+            var quantity = parseInt(item.querySelector('.quantity').value);
+            quantity = Math.max(quantity, 1); // Установка минимального значения в 1
+            var price = parseFloat(item.querySelector('.price').textContent);
+            total += quantity * price;
+        });
+
+        document.getElementById('total').textContent = total.toFixed(2);
+    }
+
+    // Добавление слушателя события изменения количества для каждого товара
+    var quantityInputs = document.querySelectorAll('.quantity');
+    quantityInputs.forEach(function(input) {
+        input.addEventListener('change', updateTotal);
+    });
+
+    // Вызываем функцию в первый раз для отображения начальной суммы
+    updateTotal();
+</script>
+{% endblock content %}
+
+
+
+
+

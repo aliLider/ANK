@@ -1,0 +1,88 @@
+{% extends 'home2.html' %}
+
+{% block content %}
+
+<style>
+     #id_sklad__{
+        width: 800px;
+        text-align: center;
+        padding-top: 4px;
+        height: 23px;
+        border-radius: 10px;
+        background-color: rgb(86, 132, 185);
+        font-size: 16px;
+        border: none;
+        margin-left: 20px;
+    }
+    #id_sklad__:hover{
+        background-color: rgb(58, 92, 136);
+        
+    }
+</style>
+
+
+
+<div style="border-radius: 20px; background-color: rgba(255, 255, 255, 0.514); margin-top: 30px; margin-left: 260px; width: 850px; height: 470px; color: black; border: solid 1px black;">
+    <div id="name" style="display: flex;">
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 50px; height: 27px; text-align: center; padding-top: 2px;"><b>T/R</b></div>
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 160px; height: 27px; text-align: center;"><b>Nomi</b></div>
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 160px; height: 27px; text-align: center;"><b>Narxi</b></div>
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 160px; height: 27px; text-align: center;"><b>Soni</b></div>
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 160px; height: 27px; text-align: center;"><b>Jami</b></div>
+
+    </div>
+    
+
+    <div id="first" style="display: flex;">
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 50px; height: 27px; text-align: center;"><b>1</b></div>
+        <input type="text" style="border-radius: 10px;  width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+
+    </div>
+    <div id="first" style="display: flex;">
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 50px; height: 27px; text-align: center;"><b>2</b></div>
+        <input type="text" style="border-radius: 10px;  width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+
+    </div>
+    <div id="first" style="display: flex;">
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 50px; height: 27px; text-align: center;"><b>3</b></div>
+        <input type="text" style="border-radius: 10px;  width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+
+    </div>
+    <div id="first" style="display: flex;">
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 50px; height: 27px; text-align: center;"><b>4</b></div>
+        <input type="text" style="border-radius: 10px;  width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+
+    </div>
+    <div id="first" style="display: flex;">
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 50px; height: 27px; text-align: center;"><b>5</b></div>
+        <input type="text" style="border-radius: 10px;  width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+
+    </div>
+    <div id="first" style="display: flex;">
+        <div style="border-radius: 10px; border: 2px solid rgb(86, 67, 129); font-size: 20px; margin-left: 20px; margin-top: 15px; width: 50px; height: 27px; text-align: center;"><b>6</b></div>
+        <input type="text" style="border-radius: 10px;  width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+        <input type="number" style="border-radius: 10px; width: 160px; margin-left: 18px; margin-top: 15px;">
+
+    </div>
+    <hr style="width: 92%; background-color: red;">
+    <h4 style=" margin-left: 20px; color: black; font-size: 20px;"><p>Jami Summa:_________________________________  </p></h4>
+    <h5 id="id_sklad__">Tasdiqlash</h5>
+</div>
+{% endblock content %}

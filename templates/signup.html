@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="website icon" type="png" href="../media/images/embelima.jpg">
+
+    <title>Sign up</title>
+    <style>
+         #id_form{
+       text-align: center;
+       margin-top: 10px;
+   }
+   #id_ruyxat{
+       text-align: center;
+       color: black;
+       font-style: italic;
+       
+   } 
+   #id_age{
+       margin-left: 67px;
+       border-radius: 30px;
+   }
+   #id_address{
+       margin-left: 35px;
+       border-radius: 30px;
+   }
+   #id_email{
+       margin-left: 55px;
+       /* background-color: red; */
+       border-radius: 30px;
+   }
+   #id_password1{
+       margin-left: 30px;
+       /* margin-top: 30px; */
+       border-radius: 30px;
+   }
+   label{
+       color: black;
+       margin-top: 0px;
+       font-style: italic;
+   }
+   #id_password2{
+       width: 230px;
+       /* display: block; */
+       padding-left: 40px;
+       border-radius: 30px;
+   }
+   #id_username{
+       margin-left: 25px;
+       border-radius: 30px;
+   }
+   .helptext{
+    display: none;
+   }
+   ul{
+    display: none;
+   }
+   body{
+       background-image: url(https://img.freepik.com/premium-photo/empty-top-wooden-table-with-supermarket-blur-background_36051-467.jpg);
+       background-size: cover;
+       background-position: center;
+       /* background-repeat: no-repeat; */
+   }
+   #id_signup{
+       border: solid white;
+       width: 400px;
+       height: 520px;
+       border-radius: 40px;
+       padding-top: 28px;
+       background-color: white;
+       margin-left: 490px;
+       margin-top: 40px;
+   }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div id="id_signup">
+    <h2 id="id_ruyxat">Ro'yxatdan o'tish</h2>
+    <!-- <a href="{% url 'home' %}" class="navbar-brand" style="display: block; margin-left: 12px; margin-top: -50px; width: 50px; height: 50px; background-size: cover; background-image: url(https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-442-1151214.png?f=webp&w=256);"></a> -->
+    <a href="{% url 'home' %}"><img style="margin-left: 15px; margin-top: -70px; width: 30px; height: 30px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVR4nO3VsSsHQBTA8Q9CKClKLJjERrJJ/jYLZVUyS7JKTEShDGQTExYsGFhJveEXm4WX96k33XLf7q6jlFJKKaWU8l0/znEgsV5c4B1HkurGaURcxsmk0xlX6TPiGoMSasdORNxiWEKt2IqIe4xKqAUbEfGIcQk1Yy0injApoSasRMQLpiW1FBGvmJXUQkRknKPGkPk/sKGfzt7XU1mMhTfMSawJyw3vZEbymNWIecaUxFqw3vCXTEgesxkxDxiTWBu2I+YOIxLrwH7E3GBIYl04jJgrDEisB2cRcyy5Ppxg97c3UkoppZRSyv/2AYbUktLOk7McAAAAAElFTkSuQmCC"></a>
+    <form action="" method="post" id="id_form">{% csrf_token %}
+        {{form.as_p}}
+        <button  type="submit" class="btn btn-success">Sign Up</button>
+    </form>
+    </div>
+</body>
+</html>

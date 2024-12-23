@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block title %}
+ | Home 
+{% endblock %}
+{% block content %} 
+<header>
+  <div class="contaniers">
+      <div class="header">
+          <div class="nav-bar" style="position: relative;">
+                  <div class="bar slideshow">
+                      <h2>Asilbek Nurli Kelajak <span style="color: #004b23;" class="span_h2_1">X/K</span> </h2>
+                        <ul class="nav11_ul_li">
+                            <li> <span>Mahsulot sifati</span></li>
+                            <li> <span>Etkazib berish sifati</span></li>
+                            <li> <span>Ijtimoiy tarmoqlar</span></li>
+                            <a href="#footer_1" style="color: #004b23;"><li> <span>Biz haqimizda</span></li></a>
+                        </ul>
+                  </div>
+                  <div class="carousel" style="position: absolute; top: 20px;left: 52%;">
+                    <div class="carousel-item">
+                        <div class="slide-image"
+                            style="background-image: url('https://media.geeksforgeeks.org/img-practice/banner/competitive-coding-thumbnail.png?v=19625');">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="slide-image"
+                            style="background-image: 
+            url('https://media.geeksforgeeks.org/img-practice/banner/dsa-to-development-coding-guide-thumbnail.png?v=19625');">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="slide-image"
+                            style="background-image: 
+            url('https://media.geeksforgeeks.org/img-practice/banner/geeks-classes-live-thumbnail.png?v=19625');">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="slide-image"
+                            style="background-image: 
+            url('https://media.geeksforgeeks.org/img-practice/banner/gate-crash-course-2024-thumbnail.png?v=19625');">
+                        </div>
+                    </div>
+                </div>
+          </div>
+         
+      </div>
+  </div>
+</header> 
+<main>
+        <div class="container">
+            <div class="main-container">
+                <div class="main-div-box">
+                  {% for market in markets %}
+                    <div class="main-div">
+                      {% if market.photo.url != null %}
+                      <div style="width: 100%; height: 300px;">
+                          <a href="{% url 'market_detail' market.pk %}" style="color: black; text-decoration: none;"><img style="width: 100%; height: 100%; border-radius: 10px;" src="{{market.photo.url}}" alt=""></a>
+                      </div>
+                     {% endif %}
+                        <!-- <img src="https://www.prom.uz/_ipx/f_webp/https://devel.prom.uz/upload/reduced/products/79/a8/79a89bd5f950d8a15047f5f1eb3f9ff6.jpg" alt="img"> -->
+                        <h4 style="margin-top: 10px;">Nomi: {{market.title}}</h4>
+                        <p>Davlati: {{market.country}}</p>
+                        <p>Markasi: {{market.rangi}}</p>
+                        <p>Sastayanasi: {{market.holati}}</p>
+                        <span>Narxi: {{market.body}}</span>
+                        <div class="div_plus_saved">
+                            <a href="{% url 'kimdirda' market.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
+                                    <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path><path fill="#fff" d="M21,14h6v20h-6V14z"></path><path fill="#fff" d="M14,21h20v6H14V21z"></path>
+                                </svg>
+                                 
+                            </a>
+                            <a href="{% url 'nimadirda' market.id %}" >
+                                <svg class="savedcha" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 32 32">
+                                    <path d="M 7 5 L 7 28 L 16 21.25 L 25 28 L 25 5 L 24 5 L 7 5 z M 9 7 L 23 7 L 23 24 L 16 18.75 L 9 24 L 9 7 z" fill="#fff"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}                  
+                </div>
+            </div>
+        </div>
+    </main>
+    {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

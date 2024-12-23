@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narxlar</title>
+</head>
+<body>
+
+    <h1> Narxlar</h1>
+
+    <div id="items">
+        <div class="item">
+            <span>mahsulot 1</span>
+            <input type="number" class="quantity" value="1" min="1">
+            <span class="price">100</span>
+        </div>
+        <div class="item">
+            <span>mahsulot 2</span>
+            <input type="number" class="quantity" value="2" min="1">
+            <span class="price">50</span>
+        </div>
+        <!-- Добавьте другие товары по аналогии -->
+    </div>
+
+    <p>Umumiy narx: <span id="total">0</span></p>
+
+    <script>
+        // Обработчик изменения количества товаров
+        function updateTotal() {
+            var items = document.querySelectorAll('.item');
+            var total = 0;
+
+            items.forEach(function(item) {
+                var quantity = parseInt(item.querySelector('.quantity').value);
+                quantity = Math.max(quantity, 1); // Установка минимального значения в 1
+                var price = parseFloat(item.querySelector('.price').textContent);
+                total += quantity * price;
+            });
+
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+
+        // Добавление слушателя события изменения количества для каждого товара
+        var quantityInputs = document.querySelectorAll('.quantity');
+        quantityInputs.forEach(function(input) {
+            input.addEventListener('change', updateTotal);
+        });
+
+        // Вызываем функцию в первый раз для отображения начальной суммы
+        updateTotal();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="website icon" type="png" href="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-442-1151214.png?f=webp&w=256">
+    <title>Profile</title>
+
+    
+<style>
+    
+    h3{
+        /* margin-left: 120px; */
+        max-width: max-content;
+        
+    }
+    body{
+        background-image: url(https://wp-mktg.prod.getty1.net/istockcontentredesign/wp-content/uploads/sites/5/2021/03/2021_iStock_LatestBGTrends_Hero.jpg.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+       
+    }
+</style>
+
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    
+<div style="background-color: white; width: 800px; height: 350px; border: solid aqua 2px; border-radius: 40px; margin-left: 290px; margin-top: 100px;">
+    <h1 class="text-center" style="margin-top: 20px; color: aqua;">Profile</h1>
+    <a href="{% url 'home' %}"><img style="margin-left: 35px; margin-top: -70px; width: 30px; height: 30px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVR4nO3VsSsHQBTA8Q9CKClKLJjERrJJ/jYLZVUyS7JKTEShDGQTExYsGFhJveEXm4WX96k33XLf7q6jlFJKKaWU8l0/znEgsV5c4B1HkurGaURcxsmk0xlX6TPiGoMSasdORNxiWEKt2IqIe4xKqAUbEfGIcQk1Yy0injApoSasRMQLpiW1FBGvmJXUQkRknKPGkPk/sKGfzt7XU1mMhTfMSawJyw3vZEbymNWIecaUxFqw3vCXTEgesxkxDxiTWBu2I+YOIxLrwH7E3GBIYl04jJgrDEisB2cRcyy5Ppxg97c3UkoppZRSyv/2AYbUktLOk7McAAAAAElFTkSuQmCC"></a>
+
+    <!-- <button class="btn btn-outline-info" style="margin-left: 347px;">Edit profile</button> -->
+    <div style="margin-left: 120px; margin-top: 2px;">
+        <h3 class="text-muted">Username: <span style="color: black;">{{user.username}}</span></h3>
+        <h3 class="text-muted">Age: <span style="color: black;">{{user.age}}</span></h3>
+        <h3 class="text-muted">Location: <span style="color: black;">{{user.address}}</span></h3>
+        <h3 class="text-muted">Email: <span style="color: black;">{{user.email}}</span></h3>
+        <a href="#" class="btn btn-outline-info" style="margin-left: 180px;">Edit Profile</a>
+        <a class="btn btn-outline-danger" href="{% url 'logout' %}" style="margin-left: 0px;">Log Out</a>
+        <p style="margin-left: -40px; margin-top: -200px; background-repeat: no-repeat; background-size: contain; width: 30px; height: 30px; background-image: url(https://cdn.icon-icons.com/icons2/3066/PNG/512/user_person_profile_avatar_icon_190943.png);"></p>
+        <p style="margin-left: -38px; margin-top: 1px; background-repeat: no-repeat; background-size: contain; width: 25px; height: 25px; background-image: url(https://cdn-icons-png.flaticon.com/512/2370/2370264.png);"></p>
+        <p style="margin-left: -38px; margin-top: 1px; background-repeat: no-repeat; background-size: contain; width: 25px; height: 25px;  background-image: url(https://leninfoservice.ru/wp-content/uploads/2020/04/word-image-2.png);"></p>
+        <p style="margin-left: -38px; margin-top: 1px; background-repeat: no-repeat; background-size: contain; width: 25px; height: 25px; background-image: url(https://cdn.icon-icons.com/icons2/2153/PNG/512/mail_envelope_icon_132765.png);"></p>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+<!-- 
+<div style=" background-color: black; width: 122.5%; margin-top: 30px; height: 181px; margin-left: -125px;">
+    <a href="#"><div style="margin-left: 620px; background-image: url(https://t4.ftcdn.net/jpg/01/06/47/61/360_F_106476142_zMZkkTkhMeq0DIjV20oJI00e3QXLYIGN.jpg); background-size: cover; width: 100px; height: 100px;">
+
+        </div>
+    </a>
+
+<div style="display: flex; margin-left: 20px;">
+
+   <a href="https://www.instagram.com/davronov_06_02"> <div style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/CIS-A2K_Instagram_Icon_%28Black%29.svg/2048px-CIS-A2K_Instagram_Icon_%28Black%29.svg.png); background-size: cover; width: 60px; height: 60px; background-color: black;">
+     </div>
+   </a>
+   <a href="https://telegram.me/nfgsb000">
+        <div style="background-image: url(https://i.pinimg.com/originals/b7/7e/1b/b77e1bd394a0243c12b689599b5a4ca6.jpg); background-size: cover; width: 60px; height: 60px; background-color: black;"></div>
+   </a>
+
+   <a href="https://google.com"> <div style="margin-top: -10px; margin-left: -10px; background-image: url(https://s.widget-club.com/samples/n8l4csS8nzRl2WLRx2WXE7Pciby1/kNIa4SO0j9xlSx9uun8h/1198959A-2DB9-415F-A3A9-A016D55E8FCB.jpg?q=70); background-size: cover; width: 80px; height: 80px;">
+        </div>
+   </a>
+
+</div>
+
+</div> -->
+
+
+

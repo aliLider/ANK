@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    #id_deleteee{ 
+        border: none;
+        width: 120px;
+        height: 30px;
+        color: white;
+        background-color: red;
+        border-radius: 20px;
+     }
+body{ 
+    background-color: rgb(15, 176, 191);
+ }
+</style>
+
+
+{% for market in markets %}
+        <p>{{market.title}}</p>
+{% endfor %}
+
+
+
+<h1 style="text-align: center; margin-top: 30px;">Mahsulotni o'chirish</h1>
+<form action="" method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <button id="id_deleteee" type="submit">O'chirish</button>
+</form>
+        
+{% endblock content %}
+

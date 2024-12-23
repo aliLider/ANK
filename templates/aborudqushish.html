@@ -1,0 +1,48 @@
+{% extends 'home2.html' %}
+
+{% block title %} Plus {% endblock title %}
+
+{% block content %}
+
+
+<style>
+    #id_title{
+       width: 200px;
+       height: 21px;
+   }
+   #id_body{
+       width: 200px;
+       height: 21px;
+       margin-left: 88px;
+   }
+   
+   #id_plus{
+       width: 350px;
+       text-align: center;
+       padding-top: 4px;
+       height: 23px;
+       border-radius: 10px;
+       background-color: aquamarine;
+       font-size: 16px;
+       border: none;
+   }
+   #id_holati{
+       width: 200px;
+       height: 21px;
+       margin-left: 83px;
+   }
+   #id_plus:hover{
+       background-color: rgb(64, 184, 144);
+   }
+</style>
+
+<h1 style="text-align: center; color: aqua;">Yangi Aborud qo'shish</h1>
+<div style=" padding-left: 28px; width: 380px; height: 360px; border-radius: 20px; margin-top: 60px; margin-left: 475px; ">
+<form action="" method="post" enctype="multipart/form-data" style="font-size:21px; color: white;">{% csrf_token %}
+    {{form.as_p}}
+    <button id="id_plus" type="submit">Saqlash</button>
+</form>
+</div>
+
+
+{% endblock content %}
