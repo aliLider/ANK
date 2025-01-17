@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %} | Oborudovaniye {% endblock title %}
+
+{% block content %}
+
+<style>
+    .pay{
+        text-align: center;
+        padding-top: 7px;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 10px;
+        background-color: #2a8401;
+        color: white;
+        font-size: 16px;
+        width: 90%;
+    }
+    .pay:hover{
+        background-color: #004b23;
+
+    }
+    .divcha{
+        width: 50%;
+        padding-left: 120px;
+        margin-top: 20px;
+    }
+    .divcha1{
+        width: 70%;
+        margin-top: 20px;
+        margin-left: -80px;
+        padding-top: 30px;
+    }
+    .divcha img{
+        width: 350px;
+        height:350px;
+        border-radius: 30px;
+    }
+    .divchalar{
+        display: flex;
+        margin-left: 60px;
+        margin-top: 20px;
+    }
+    .hr_1{
+        width: 70%;
+    }
+@media screen and (max-width: 1350px) and (min-width:1080px){
+    .divcha img{
+        width: 350px;
+        height: 350px;
+    }
+    .divcha{
+        padding-left: 70px;
+    }
+    .divchalar{
+        display: flex;
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+    .divcha1{
+        width: 70%;
+        margin-top: 20px;
+        margin-left: 0;
+
+        padding-top: 30px;
+    }
+}
+@media screen and (max-width: 1080px) and (min-width:769px){
+    .divcha img{
+        width: 280px;
+        height: 280px;
+    }
+    .divchalar{
+        display: flex;
+        margin-left: 25px;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+    .divcha1{
+        width: 70%;
+        margin-top: 20px;
+        margin-left: 0;
+
+        padding-top: 30px;
+    }
+    .divcha{
+        padding-left: 10px;
+    }
+    .pay{
+        text-align: center;
+        padding-top: 7px;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        width: 90%;
+    }
+}
+@media screen and (max-width: 769px) and (min-width:520px){
+    .divcha img{
+        width: 100%;
+        height: 100%;
+        margin-left: -30px;
+    }
+    .divchalar{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-bottom: 40px;
+        border-radius: 20px;
+        padding: 20px 0;
+    }
+    .divchalar:hover{
+        box-shadow: 0 0 5px 1px green;
+    }
+    .divcha1{
+        margin-top: 20px;
+        margin-left: 0;
+        padding-top: 30px;
+    }
+    .divcha{
+        padding-left: 10px;
+    }
+    .pay{
+        text-align: center;
+        padding-top: 7px;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        width: 90%;
+    }
+}
+@media screen and (max-width: 520px) and (min-width:100px){
+    .divcha img{
+        width: 220px;
+        height: 220px;
+        margin-left: -50px;
+    }
+    .divchalar{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 20px 0;
+    }
+    .divchalar:hover{
+        box-shadow: 0 0 5px 1px green;
+    }
+    .divcha1{
+        margin-top: 20px;
+        margin-left: 0;
+        padding-top: 30px;
+    }
+    .divcha{
+        padding-left: 10px;
+    }
+    .pay{
+        text-align: center;
+        padding-top: 7px;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        width: 90%;
+    }
+    .hr_1{
+        width: 100%;
+    }
+}
+</style>
+<h1 style="text-align: center;color: black; padding-top: 100px; margin-bottom: 20px;">Oborudlar</h1>
+
+{% for aborud in aboruds %}
+{% if aborud.group_lang == 'uz' %}
+<div class="divchalar">
+    <div class="divcha">
+        {% if aborud.photo.url %}
+        <img src="{{aborud.photo.url}}" alt="img">
+        {% endif %}
+    </div>
+    <div class="divcha1">
+        <h2><b style="color: black;">{{aborud.title}}</b></h5>
+        <br>
+        <hr class="hr_1">
+        <p style="font-size: 18px; margin-top: 20px; color: #004b23;"><span style="color: black;">Holati : </span>{{aborud.holati}}</p>
+        <p style="margin-top: 20px; font-size: 18px; color: #004b23;" class="text-muted"><span style="color: black;">Narxi : </span>{{aborud.body}} so'm</p>
+        <!-- <p style="margin-top: -20px; font-size: 22px;">{{market.new}} so'm</p> -->
+        <p style="margin-top: 20px; font-size: 18px; color: #004b23;">Buxoro bo'ylab yetkazib berish : bepul</p>
+        {% if aborud.sklad %}
+        <!-- Agar savatda bo'lsa -->
+        <p class="pay" style="background-color: #d3d3d3; color: #555;">Savatda</p>
+        {% else %}
+        <!-- Agar savatga qo'shilmagan bo'lsa -->
+        <a href="{% url 'aboruds_savatga' aborud.id %}">
+            <p class="pay">Savatga solish</p>
+        </a>
+        {% endif %}
+        <!-- <div style="background-color: aqua; border-radius: 5px; width: 60px; margin-top: -125px; margin-left: 270px;" class="text-center">Aksiya</div> -->
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+<br>
+<br>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.pay').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const url = this.closest('a').getAttribute('href');
+                fetch(url, { method: 'GET' })
+                    .then(response => {
+                        if (response.ok) {
+                            alert("Mahsulot savatga qo'shildi!");
+                            location.reload(); // Sahifani qayta yuklash
+                        } else {
+                            alert("Xatolik yuz berdi!");
+                        }
+                    })
+                    .catch(error => console.error('Xatolik:', error));
+            });
+        });
+    });
+
+</script>
+
+{% endblock content %}

@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+
+{% block title %} {{query}} {% endblock title %}
+
+{% block content %}
+
+<style>
+    @media screen and (max-width: 820px) and (min-width: 600px){    
+        .text-center{
+            text-align: center;
+        }
+    }
+    @media screen and (max-width: 600px) and (min-width: 100px){    
+        .text-center{
+            text-align: center;
+            font-size: 20px
+        }
+    }
+</style>
+
+<main>
+    
+    <div class="container">
+        <div class="main-container">
+            <h1 class="text-center" style="text-align: center; display: block; padding-top: 80px;"  >So'ralgan "{{query}}" bo'yicha natijalar</h1>
+            <div class="main-div-box">
+                {% for market in search_obj %}     
+                    {% if market.group_lang == 'uz' %}
+                    <div class="main-div">
+                        {% if market.photo.url != null %}
+
+                        <div style="width: 100%; height: 290px;">
+                            <a href="{% url 'market_detail' market.pk %}" style="color: black; text-decoration: none;"><img style="width: 100%; height: 100%; border-radius: 10px;" src="{{market.photo.url}}" alt=""></a>
+                        </div>
+                       {% endif %}
+                          <!-- <img src="https://www.prom.uz/_ipx/f_webp/https://devel.prom.uz/upload/reduced/products/79/a8/79a89bd5f950d8a15047f5f1eb3f9ff6.jpg" alt="img"> -->
+                          <h4 style="margin-top: 10px;">Nomi: {{market.title}}</h4>
+                          <p>Davlati: {{market.country}}</p>
+                          <p>Markasi: {{market.rangi}}</p>
+                          <p>Sastayanasi: {{market.holati}}</p>
+                          <span>Narxi: {{market.body}}</span>
+
+                    
+                            <div style=" margin-left: 210px; margin-top: -41px; width: 70px; display: flex;">
+                              <a href="{% url 'kimdirda' market.id %}" style="margin-left: 40px;">
+                                  {% if market.sklad %}
+                                  <!-- Agar savatda bo'lsa -->
+                                  <img class="img_minus" src="../../media/images/minus-sign-icon-free-png.webp" alt="minus" style="width: 31px ; height: 31px; border: none; margin-left: 5px; margin-top:2px;"> 
+                                  {% else %}
+                                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
+                                      <path  fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path>
+                                      <path fill="#fff" d="M21,14h6v20h-6V14z"></path>
+                                      <path fill="#fff" d="M14,21h20v6H14V21z"></path>
+                                  </svg>
+                                  {% endif %}
+                            
+                              </a>  
+                                </div>
+                      
+                      
+                            </div>
+                          {% endif %}
+                          {% empty %}                  
+                {% endfor %}
+                {% for market in search_objsa %}     
+                        {% if market.group_lang == 'uz' %}
+                        <div class="main-div">
+                            {% if market.photo.url != null %}
+                            <div style="width: 100%; height: 300px;">
+                                <a href="#" style="color: black; text-decoration: none;"><img style="width: 100%; height: 100%; border-radius: 10px;" src="{{market.photo.url}}" alt=""></a>
+                            </div>
+                            {% endif %}
+                              <!-- <img src="https://www.prom.uz/_ipx/f_webp/https://devel.prom.uz/upload/reduced/products/79/a8/79a89bd5f950d8a15047f5f1eb3f9ff6.jpg" alt="img"> -->
+                              <h4 style="margin-top: 10px;">Nomi: {{market.title}}</h4>
+                              {% comment %} <p>Davlati: {{market.country}}</p> {% endcomment %}
+                              {% comment %} <p>Markasi: {{market.rangi}}</p> {% endcomment %}
+                              <p>Holati: {{market.holati}}</p>
+                              <span>Narxi: {{market.body}}</span>
+                              <div class="div_plus_saved">
+                              <!-- Agar savatga qo'shilmagan bo'lsa -->
+                              <a href="{% url 'aboruds_savatga' market.id %}" style="margin-right: 20px;">
+                                  {% if market.sklad %}
+                                  <!-- Agar savatda bo'lsa -->
+                                  <img class="img_minus" src="../../media/images/minus-sign-icon-free-png.webp" alt="minus" style="width: 31px ; height: 31px; border: none; margin-left: 5px; margin-top:2px;"> 
+                                  {% else %}
+                                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
+                                      <path  fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path>
+                                      <path fill="#fff" d="M21,14h6v20h-6V14z"></path>
+                                      <path fill="#fff" d="M14,21h20v6H14V21z"></path>
+                                  </svg>
+                                  {% endif %}
+
+                                  </a>
+
+
+                                  
+                                </div>
+                            </div>
+                            {% endif %}
+                {% endfor %}
+                {% for market in search_objs %}     
+                              {% if market.group_lang == 'uz' %}
+                              <div class="main-div">
+                                  {% if market.photo.url != null %}
+
+                                  <div style="width: 100%; height: 290px;">
+                                      <a href="#" style="color: black; text-decoration: none;"><img style="width: 100%; height: 100%; border-radius: 10px;" src="{{market.photo.url}}" alt=""></a>
+                                  </div>
+                                 {% endif %}
+                                    <!-- <img src="https://www.prom.uz/_ipx/f_webp/https://devel.prom.uz/upload/reduced/products/79/a8/79a89bd5f950d8a15047f5f1eb3f9ff6.jpg" alt="img"> -->
+                                    <h4 style="margin-top: 10px;">Nomi: {{market.title}}</h4>
+                                    {% comment %} <p>Davlati: {{market.country}}</p> {% endcomment %}
+                                    <p>Markasi: {{market.markasi}}</p>
+                                    {% comment %} <p>Sastayanasi: {{market.holati}}</p> {% endcomment %}
+                                    <span>Narxi: {{market.body}}</span>
+
+                    
+                                    <div style=" margin-left: 210px; margin-top: -41px; width: 70px; display: flex;">
+                                      <a href="{% url 'kimdirda_1' market.id %}" style="margin-left: 40px;">
+                                          {% if market.sklad %}
+                                          <!-- Agar savatda bo'lsa -->
+                                          <img class="img_minus" src="../../media/images/minus-sign-icon-free-png.webp" alt="minus" style="width: 31px ; height: 31px; border: none; margin-left: 5px; margin-top:2px;"> 
+                                          {% else %}
+                                          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
+                                              <path  fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path>
+                                              <path fill="#fff" d="M21,14h6v20h-6V14z"></path>
+                                              <path fill="#fff" d="M14,21h20v6H14V21z"></path>
+                                          </svg>
+                                          {% endif %}
+                            
+                                      </a>
+                        
+                        
+                                     
+                                  </a>
+                                </div>
+                      
+                      
+                            </div>
+                          {% endif %}
+                        
+                  
+                  
+                {% endfor %}  
+                {% for market in search_objsm %} 
+                            {% if market.group_lang == 'uz' %}
+                            <div class="main-div">
+                                {% if market.photo.url != null %}
+
+                                <div style="width: 100%; height: 290px;">
+                                    <a href="#" style="color: black; text-decoration: none;"><img style="width: 100%; height: 100%; border-radius: 10px;" src="{{market.photo.url}}" alt=""></a>
+                                </div>
+                               {% endif %}
+                                  <!-- <img src="https://www.prom.uz/_ipx/f_webp/https://devel.prom.uz/upload/reduced/products/79/a8/79a89bd5f950d8a15047f5f1eb3f9ff6.jpg" alt="img"> -->
+                                  <h4 style="margin-top: 10px;">Nomi: {{market.title}}</h4>
+                                  {% comment %} <p>Davlati: {{market.country}}</p> {% endcomment %}
+                                  <p>Qalinligi: {{market.qalinligi}}</p>
+                                  <p>O'lchami: {{market.razmeri}}</p>
+                                  <span>Narxi: {{market.body}}</span>
+
+                        
+                                  <div style=" margin-left: 210px; margin-top: -41px; width: 70px; display: flex;">
+                                      <a href="{% url 'mahsulot_savatga' market.id %}" style="margin-left: 40px;">
+                                          {% if market.sklad %}
+                                          <!-- Agar savatda bo'lsa -->
+                                          <img class="img_minus" src="../../media/images/minus-sign-icon-free-png.webp" alt="minus" style="width: 31px ; height: 31px; border: none; margin-left: 5px; margin-top:2px;"> 
+                                          {% else %}
+                                          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
+                                              <path  fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path>
+                                              <path fill="#fff" d="M21,14h6v20h-6V14z"></path>
+                                              <path fill="#fff" d="M14,21h20v6H14V21z"></path>
+                                          </svg>
+                                          {% endif %}
+                                  
+                                      </a>
+    
+                                      
+                                  </div>
+                          
+                          
+                          </div>
+                        {% endif %}
+                        {% empty %}
+                {% endfor %}
+            </div>       
+        </div>
+    </div>
+</main>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            {% for article in search_obj %}
+            <div class="col-md-4">
+                <div class="card">
+                    {% if article.photo.url != null %}
+                    <img class="card-img-top" src="{{article.photo.url}}" alt="Card image cap">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{article.title}}</h5>
+                        <p class="card-text">{{article.body}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+            </div>
+            {% empty %}
+             So'ralgan "{{query}}" bo'yicha hech narsa topilmadi</h1>
+            {% endfor %}
+        </div>
+    </div>
+
+</div> -->
+
+{% endblock content %}

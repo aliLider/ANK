@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyurtmalar</title>
+</head>
+<body>
+
+    <h1>Tasdiqlangan Buyurtmalar</h1>
+<ul style="list-style:none; display: flex; flex-wrap:wrap; gap: 30px;">
+    {% for buyurtma in tasdiqlangan_buyurtmalar %}
+    <li style="border: 2px solid green; border-radius: 12px; padding: 10px;">
+        <h2>{{ buyurtma.foydalanuvchi }} <span style="font-size: 18px;">{{buyurtma.foydalanuvchi.phone_number}}</span></h2>
+        <p>{{ buyurtma.mahsulot_nomi }}</p>
+        <p>Umumiy summa: {{ buyurtma.umumiy_summa }} so'm</p>
+        <p>Umumiy kilogramm: {{ buyurtma.umumiy_kg }} kg</p>
+        <p style="color: green;">Tasdiqlangan!</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<h1>Tasdiqlanmagan Buyurtmalar</h1>
+<ul  style="list-style:none; display: flex; flex-wrap:wrap; gap: 30px;">
+    {% for buyurtma in tasdiqlanmagan_buyurtmalar %}
+    <li style="border: 2px solid red; border-radius: 12px; padding: 10px;">
+        <h2>{{ buyurtma.foydalanuvchi }}</h2>
+        <p>{{ buyurtma.mahsulot_nomi.title }}</p>
+        <p>Umumiy summa: {{ buyurtma.umumiy_summa }} so'm</p>
+        <p>Umumiy kilogramm: {{ buyurtma.umumiy_kg }} kg</p>
+        <p style="color: red;">Tasdiqlanmagan!</p>
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

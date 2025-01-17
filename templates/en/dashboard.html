@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Cabinet</title>
+    <style>
+        /* Umumiy uslublar */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 10px 0 10px;
+            background: linear-gradient(90deg, #006400, #38b000, #006400);
+        }
+
+        /* Dashboard konteyneri */
+        .dashboard-container {
+            background-color: #fff;
+            color: #2a8401;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 15px solid #004b23;
+            position: relative;
+        }
+
+        /* Sarlavha */
+        .dashboard-header h1 {
+            text-align: center;
+            margin: 0 0 20px;
+            font-size: 28px;
+            background: linear-gradient(90deg, #006400  , #38b000 , #006400 );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Foydalanuvchi ma'lumotlari */
+        .user-info {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .user-info p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .user-info strong {
+            color: #2a8401;
+        }
+        .a_orqaga{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Tugmalar */
+        .logout-btn {
+            margin-top: 20px;
+        }
+
+        .logout-btn button{
+            background-color:red;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn button:nth-child(2):hover{
+            background-color: #ac0103;
+        }
+        .logout-btn button:first-child{
+            background-color: #fdc500;
+        }
+        .logout-btn button:first-child:hover{
+            background-color: #741d1d;
+        }
+        .li_tasdiqlangan{
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+        /* Mobil moslashuv */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                width: 90%;
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .dashboard-container {
+                width: 100%;
+                padding: 15px;
+                border-width: 10px;
+            }
+
+            .dashboard-header h1 {
+                font-size: 22px;
+            }
+
+            .user-info p {
+                font-size: 16px;
+            }
+
+            li {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .logout-btn button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            .a_orqaga img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-header h1 {
+                font-size: 20px;
+            }
+
+            .user-info p {
+                font-size: 14px;
+            }
+
+            .logout-btn button {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .dashboard-header h1 {
+                font-size: 20px;
+                margin-top: 10px;
+            }
+
+            .user-info p {
+                font-size: 14px;
+            }
+
+            .logout-btn button {
+                font-size: 12px;
+                padding: 6px 10px;
+            }x
+            .li_tasdiqlangan{
+                font-size: 12px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        {% if user.is_authenticated %}
+        <div class="dashboard-header">
+            <a class="a_orqaga" href="{% url 'en_home' %}">
+                <img style="width: 30px; height: 30px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVR4nO3VsSsHQBTA8Q9CKClKLJjERrJJ/jYLZVUyS7JKTEShDGQTExYsGFhJveEXm4WX96k33XLf7q6jlFJKKaWU8l0/znEgsV5c4B1HkurGaURcxsmk0xlX6TPiGoMSasdORNxiWEKt2IqIe4xKqAUbEfGIcQk1Yy0injApoSasRMQLpiW1FBGvmJXUQkRknKPGkPk/sKGfzt7XU1mMhTfMSawJyw3vZEbymNWIecaUxFqw3vCXTEgesxkxDxiTWBu2I+YOIxLrwH7E3GBIYl04jJgrDEisB2cRcyy5Ppxg97c3UkoppZRSyv/2AYbUktLOk7McAAAAAElFTkSuQmCC">
+            </a>
+            <h1 id="username">Welcome, {{ username }}</h1>
+        </div>
+        <div class="user-info">
+            <p id="email"><strong>Email:</strong> {{ email }}</p>
+            <p id="address"><strong>Address:</strong> {{ address }}</p>
+            <p id="phone_number"><strong>Phone Number:</strong> {{ phone_number }}</p>
+        </div>
+        {% for buyurtma in tasdiqlangan_buyurtmalar %}
+            {# Ensure buyurtma.foydalanuvchi is a user object #}
+            {% if buyurtma.foydalanuvchi.username == username %}
+                <li class="li_tasdiqlangan" style="border: 2px solid green; border-radius: 12px; list-style: none;">
+                    <h2>
+                        {{ buyurtma.foydalanuvchi.username }}
+                        {% if buyurtma.foydalanuvchi.phone_number %}
+                            <span style="font-size: 18px;">{{ buyurtma.foydalanuvchi.phone_number }}</span>
+                        {% endif %}
+                    </h2>
+                    <p>Total Amount: {{ buyurtma.umumiy_summa }} UZS</p>
+                    <p>Total Weight: {{ buyurtma.umumiy_kg }} kg</p>
+                    <p style="color: green;font-weight: bold;">Confirmed!</p>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% for buyurtma in tasdiqlanmagan_buyurtmalar %}
+            {# Ensure buyurtma.foydalanuvchi is a user object #}
+            {% if buyurtma.foydalanuvchi.username == username %}
+                <li class="li_tasdiqlangan" style="border: 2px solid gold; border-radius: 12px; list-style: none;">
+                    <h2>
+                        {{ buyurtma.foydalanuvchi.username }}
+                        {% if buyurtma.foydalanuvchi.phone_number %}
+                            <span style="font-size: 18px;">{{ buyurtma.foydalanuvchi.phone_number }}</span>
+                        {% endif %}
+                    </h2>
+                    <p>Total Amount: {{ buyurtma.umumiy_summa }} UZS</p>
+                    <p>Total Weight: {{ buyurtma.umumiy_kg }} kg</p>
+                    <p style="color: gold;">Pending Confirmation!</p>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        <div class="logout-btn" style="display: flex; justify-content: center; gap: 10px;">
+            <form method="post" action="{% url 'en_logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+        {% else %}
+        <div class="dashboard-header">
+            <h1>Login Required</h1>
+            <p>Please log in to access the dashboard.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

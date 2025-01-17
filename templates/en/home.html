@@ -1,0 +1,123 @@
+{% extends 'en/base.html' %}
+{% load static %}
+{% block title %}
+ | Main Page
+{% endblock %}
+{% block content %}
+<header>
+
+<div class="contaniers">
+    <div class="header">
+        <div class="nav-bar" style="position: relative;">
+            <div class="bar slideshow">
+                <h2>Asilbek Nurli Kelajak <span style="color: #004b23;" class="span_h2_1">X/K</span> </h2>
+                <ul class="nav11_ul_li">
+                    <li><span>Product Quality</span></li>
+                    <li><span>Delivery Quality</span></li>
+                    <li><span>Various orders</span></li>
+                    <a href="#footer_1" style="color: #004b23;"><li><span>About Us</span></li></a>
+                </ul>
+            </div>
+            <div class="slideshow-container1">
+                {% for ad in advertisements %}
+                <div class="mySlides1 fade1">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+</header>
+<main>
+        <div class="container">
+            <div class="main-container">
+                <div class="main-div-box">
+                    {% for market in markets %}
+                        {% if market.group_lang == 'en' %}
+                            <div class="main-div">
+                                {% if market.photo.url != null %}
+                                <div style="width: 100%; height: 300px;">
+                                    <a href="{% url 'en_market_detail' market.pk %}" style="color: black; text-decoration: none;"><img style="width: 100%; height: 100%; border-radius: 10px;" src="{{market.photo.url}}" alt=""></a>
+                                </div>
+                                {% endif %}
+                                <h4 style="margin-top: 10px;">Name: {{market.title}}</h4>
+                                <p>Country: {{market.country}}</p>
+                                <p>Brand: {{market.rangi}}</p>
+                                <p>Condition: {{market.holati}}</p>
+                                <span>Price: {{market.body}}</span>
+                                <div class="div_plus_saved">
+                                    <a href="{% url 'en_kimdirda' market.id %}">
+                                        {% if market.sklad %}
+                                        <img class="img_minus" src="../../media/images/minus-sign-icon-free-png.webp" alt="minus" style="width: 31px ; height: 31px; border: none; margin-left: 5px; margin-top:2px;">
+                                        {% else %}
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 48 48">
+                                            <path fill="#4caf50" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"></path>
+                                            <path fill="#fff" d="M21,14h6v20h-6V14z"></path>
+                                            <path fill="#fff" d="M14,21h20v6H14V21z"></path>
+                                        </svg>
+                                        {% endif %}
+                                    </a>
+
+                                    <a href="{% url 'en_nimadirda' market.id %}">
+                                        {% if market.saved %}
+                                        <i class="fa-solid fa-bookmark" style="color: #ffffff; font-size: 26px; margin-right: 10px; margin-top: 5px;"></i>
+                                        {% else %}
+                                        <svg class="savedcha" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 32 32">
+                                            <path d="M 7 5 L 7 28 L 16 21.25 L 25 28 L 25 5 L 24 5 L 7 5 z M 9 7 L 23 7 L 23 24 L 16 18.75 L 9 24 L 9 7 z" fill="#fff" style="color: white; background-color: white;"></path>
+                                        </svg>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+</main>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.pay').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const url = this.closest('a').getAttribute('href');
+                    fetch(url, { method: 'GET' })
+                        .then(response => {
+                            if (response.ok) {
+                                alert("Mahsulot savatga qo'shildi!");
+                                location.reload(); // Sahifani qayta yuklash
+                            } else {
+                                alert("Xatolik yuz berdi!");
+                            }
+                        })
+                        .catch(error => console.error('Xatolik:', error));
+                });
+            });
+        });
+
+
+        let slideIndex1 = 0;
+        showSlides1();
+
+        function showSlides1() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides1");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex1++;
+            if (slideIndex1 > slides.length) {
+                slideIndex1 = 1;
+            }
+            slides[slideIndex1 - 1].style.display = "block";
+            setTimeout(showSlides1, 4000);
+        }
+
+    </script>
+
+{% endblock content %}

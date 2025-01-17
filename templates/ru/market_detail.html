@@ -1,0 +1,175 @@
+{% extends 'ru/base.html' %}
+
+{% block title %} | {{market.title}} {% endblock title %}
+
+{% block content %}
+
+<style>
+    .pay{
+        text-align: center;
+        padding-top: 7px;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 10px;
+        background-color: #2a8401;
+        color: white;
+        font-size: 16px;
+        width: 90%;
+    }
+    .pay:hover{
+        background-color: #004b23;
+
+    }
+.divchalar1{
+    display: flex;
+    margin-left: 60px;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.divcha_1{
+    width: 50%;
+    padding-left: 120px;
+    margin-top: 20px;
+}
+.divcha2{
+    width: 70%;
+    margin-top: 20px;
+    margin-left: -80px;
+    padding-top: 30px;
+}
+.h1_2{
+    width: 70%;
+}
+.divcha_1 img{
+    width: 350px;
+    height:350px;
+    border-radius: 30px;
+}
+@media screen and (max-width: 1340px) and (min-width:1080px){
+    .divcha_1 img{
+        width: 350px;
+        height: 350px;
+    }
+    .divcha_1{
+        padding-left: 70px;
+    }
+    .divchalar1{
+        display: flex;
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+    .divcha2{
+        width: 70%;
+        margin-top: 20px;
+        margin-left: 0;
+        padding-top: 30px;
+    }
+}
+@media screen and (max-width: 1080px) and (min-width:769px){
+    .divcha_1 img{
+        width: 280px;
+        height: 280px;
+        margin-top: 25px;
+    }
+    .divchalar1{
+        display: flex;
+        margin-left: 25px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .divcha2{
+        width: 70%;
+        margin-top: 20px;
+        margin-left: 0;
+        padding-top: 30px;
+    }
+    .divcha_1{
+        padding-left: 10px;
+    }
+    .pay{
+        text-align: center;
+        padding-top: 7px;
+        height: 35px;
+        margin-top: 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        width: 90%;
+    }
+}
+@media screen and (max-width: 769px) and (min-width:520px){
+    .divcha_1 img{
+        width: 300px;
+        height: 300px;
+        margin-left: 0;
+    }
+    .divcha_1{
+        width: 100%;
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .divchalar1{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 10px 0 10px;
+        padding-top: 80px;
+    }
+}
+@media screen and (max-width: 520px) and (min-width:100px){
+    .divcha_1 img{
+        width: 280px;
+        height: 280px;
+        margin-left: 0;
+    }
+    .divcha_1{
+        width: 100%;
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .divchalar1{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 10px 0 10px;
+        padding-top: 80px;
+   }
+    .h1_2{
+        width: 120%;
+    }
+    .pay{
+        width: 290px;
+    }
+}
+</style>
+
+{% if market.group_lang == 'ru' %}
+    <div class="divchalar1">
+        <div class="divcha_1">
+            {% if market.photo %}
+            <img src="{{ market.photo.url }}" alt="">
+            {% endif %}
+        </div>
+
+        <div class="divcha2">
+            <h2><b>{{market.title}}</b></h2>
+            <br>
+            <hr class="h1_2">
+            <br>
+            <p style="font-size: 18px; color: #004b23"><span style="color: black;">Цвет:</span> {{market.rangi}}</p>
+            <p style="font-size: 18px; margin-top: 20px; color: #004b23"><span style="color: black;">Состояние:</span> {{market.holati}}</p>
+            <p style="margin-top: 20px; font-size: 18px; color: #004b23;" class="text-muted"><span style="color: black;">Цена:</span> {{market.body}} сум</p>
+            <!-- <p style="margin-top: -20px; font-size: 22px;">{{market.new}} сум</p> -->
+            <p style="margin-top: 20px; font-size: 17px; color: #004b23;">Доставка: бесплатно*</p>
+            <a href="{% url 'ru_kimdirda' market.id %}" style="color: black;"><p class="pay">Добавить в корзину</p></a>
+            <!-- <a href="{% url 'ru_delete' market.pk %}">Удалить</a> -->
+            <!-- <div style="background-color: aqua; border-radius: 5px; width: 60px; margin-top: -125px; margin-left: 270px;" class="text-center">Акция</div> -->
+        </div>
+    </div>
+{% endif %}
+
+
+{% endblock content %}
